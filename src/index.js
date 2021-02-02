@@ -4,9 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const list = ["React", "Redux", "Hooks"]
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App title="React Demo" description="Esto es una app de prueba" list={list} />
   </React.StrictMode>,
   document.getElementById('root')
 );

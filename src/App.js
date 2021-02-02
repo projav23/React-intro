@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
+  console.log(props.list)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+      <Header titulo={props.title} />
+      <Body description={props.description} lista={props.list}/>
+      <Footer lista={props.list} />
+    </div> 
+    );
 }
 
+function Header(props) {
+  return (
+      <h1> {props.titulo}</h1>
+  )
+}
+
+function Body(props){
+  return (
+  <p>{props.description}</p>,
+  <List lista={props.lista} />
+  )
+}
+
+function Footer(props){
+  return(
+  <List lista={props.lista} />
+  )
+}
+
+function List(props){
+  console.log(props.lista)
+  return (
+    <div>
+      {props.lista.map(elem =>{
+        return <li>{elem}</li>
+      })}
+  </div>
+  )
+}
 export default App;
